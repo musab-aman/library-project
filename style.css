@@ -2,3 +2,9 @@ body {
     display: grid;
     grid-template-columns: auto;
 }
+
+.book {
+    background-color: whitesmoke;
+    padding: 5px;
+    width: 300px;
+}
