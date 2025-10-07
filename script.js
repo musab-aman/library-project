@@ -27,6 +27,15 @@ function removeBook(id) {
     if (index !== -1) myLibrary.splice(index, 1);
 }
 
+function toggle(id) {
+	const book = myLibrary.find(item => item.id === id);
+	if (book.read === true) {
+		book.read = false;
+	}else{
+		book.read = true;
+	}
+}
+
 const library = document.querySelector('.library');
 
 function displayBook(element) {
@@ -46,6 +55,15 @@ function displayBook(element) {
 	const r = document.createElement('p');
 	r.textContent = `read: ${element.read}`;
 	div.appendChild(r);
+	const read = document.createElement('button');
+	read.textContent = 'read';
+	read.className = 'read';
+	read.dataset.id = element.id;
+	div.appendChild(read);
+	read.addEventListener('click', () => {
+		toggle(element.id);
+		r.textContent = `read: ${myLibrary.find(item => item.id === element.id).read}`;
+	})
 	const del = document.createElement('button');
 	del.textContent = 'delete';
 	del.className = 'delete';
@@ -58,12 +76,7 @@ function displayBook(element) {
 
 }
 
-const book1 = new Book("The titanic", "tony stark", 222, true);
-myLibrary.push(book1);
-const book2 = new Book("Math", "devil", 2000, false);
-myLibrary.push(book2);
-const book3 = new Book("fiker eske mekabir", "meheretu", 400, true);
-myLibrary.push(book3);
+
 
 
 
