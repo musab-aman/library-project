@@ -15,12 +15,25 @@ function Book(title, author, pages, read) {
 	};
 }
 
+function removeBook(id) {
+    const books = document.querySelectorAll('.book');
+    books.forEach(book => {
+        if (book.dataset.id === id) {
+            book.remove();
+        }
+    });
+
+    const index = myLibrary.findIndex(book => book.id === id);
+    if (index !== -1) myLibrary.splice(index, 1);
+}
+
 const library = document.querySelector('.library');
 
 function displayBook(element) {
     const div = document.createElement("div");
     library.append(div);
 	div.className = 'book';
+	div.dataset.id = element.id;
 	const p = document.createElement('p');
 	p.textContent = `title: ${element.title}`;
 	div.appendChild(p);
@@ -33,6 +46,16 @@ function displayBook(element) {
 	const r = document.createElement('p');
 	r.textContent = `read: ${element.read}`;
 	div.appendChild(r);
+	const del = document.createElement('button');
+	del.textContent = 'delete';
+	del.className = 'delete';
+	del.dataset.id = element.id;
+	div.appendChild(del);
+	del.addEventListener('click', () => {
+		removeBook(element.id);
+	})
+	
+
 }
 
 const book1 = new Book("The titanic", "tony stark", 222, true);

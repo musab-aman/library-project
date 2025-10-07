@@ -118,3 +118,10 @@ form button:last-child:hover {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
+
+.delete {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
