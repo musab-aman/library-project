@@ -15,9 +15,11 @@ function Book(title, author, pages, read) {
 	};
 }
 
+const library = document.querySelector('.library');
+
 function displayBook(element) {
     const div = document.createElement("div");
-	document.body.append(div);
+    library.append(div);
 	div.className = 'book';
 	const p = document.createElement('p');
 	p.textContent = `title: ${element.title}`;

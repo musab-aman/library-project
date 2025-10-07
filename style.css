@@ -1,8 +1,41 @@
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.library {
     display: grid;
     grid-template-columns: 350px 350px 350px;
     gap: 20px;
 }
+h1 {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f2937;
+  margin: 0px 0px  0px;
+  padding: 10px 0 10px 0;
+  font-size: 48px;
+  color: #f9faf8;
+  font-weight: 900;
+   
+}
+.add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.add {
+    height: 50px;
+    width: 100px;
+
+}
+
+
+
 
 .book {
     background-color: whitesmoke;
