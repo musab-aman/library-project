@@ -15,6 +15,23 @@ function Book(title, author, pages, read) {
 	};
 }
 
+function displayBook(element) {
+    const div = document.createElement("div");
+	document.body.append(div);
+	div.className = 'book';
+	const p = document.createElement('p');
+	p.textContent = `title: ${element.title}`;
+	div.appendChild(p);
+	const s = document.createElement('p');
+	s.textContent = `author: ${element.author}`;
+	div.appendChild(s);
+	const v = document.createElement('p');
+	v.textContent = `pages: ${element.pages}`;
+	div.appendChild(v);
+	const r = document.createElement('p');
+	r.textContent = `read: ${element.read}`;
+	div.appendChild(r);
+}
 
 const book1 = new Book("The titanic", "tony stark", 222, true);
 myLibrary.push(book1);
@@ -32,24 +49,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 
 }
-myLibrary.forEach(element => {
-	const div = document.createElement("div");
-	document.body.append(div);
-	div.className = 'book';
-	const p = document.createElement('p');
-	p.textContent = `title: ${element.title}`;
-	div.appendChild(p);
-	const s = document.createElement('p');
-	s.textContent = `author: ${element.author}`;
-	div.appendChild(s);
-	const v = document.createElement('p');
-	v.textContent = `pages: ${element.pages}`;
-	div.appendChild(v);
-	const r = document.createElement('p');
-	r.textContent = `read: ${element.read}`;
-	div.appendChild(r);
-
-});
+myLibrary.forEach(displayBook);
 
 const mydial = document.querySelector('.my-dialog');
 const add = document.querySelector('.add');
@@ -61,5 +61,30 @@ add.addEventListener('click', () => {
 close.addEventListener('click', () => {
     mydial.close();
 });
+
+const form = document.querySelector('form'); 
+const submit = document.querySelector('.submit'); 
+
+submit.addEventListener('click', (e) => {
+	e.preventDefault(); 
+	
+	
+	const title = form.querySelector('#title').value;
+	const author = form.querySelector('#author').value;
+	const pages = form.querySelector('#pages').value;
+	const read = form.querySelector('#read').checked;
+	
+	
+	addBookToLibrary(title, author, pages, read);
+	
+	
+	displayBook(myLibrary[myLibrary.length - 1]);
+
+	mydial.close();
+
+	
+	form.reset();
+});
+
 
 

@@ -10,6 +10,78 @@ body {
     width: 350px;
 }
 
-dialog {
-    
+
+/* Style the <dialog> element itself */
+.my-dialog {
+  /* Center the dialog on the screen */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Basic appearance */
+  padding: 30px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Maximum width on large screens */
+}
+
+/* Style the form inside the dialog */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+}
+
+/* Style all input fields and labels */
+form label {
+  font-weight: bold;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Style the submit button */
+form .submit {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+form .submit:hover {
+  background-color: #45a049;
+}
+
+/* Style the close button */
+form button:last-child {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+form button:last-child:hover {
+  background-color: #da190b;
+}
+
+/* Style the backdrop (the dimmed area behind the dialog) */
+.my-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
 }
